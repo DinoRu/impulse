@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=login123!
+      - DB_NAME=impulse
+      - DB_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: login123!
+      POSTGRES_DB: impulse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const pool = require("./db");
-const validator = require("validator");
-const port = 3000;
+// const validator = require("validator");
+
+require("dotenv").config();
 
 //middleware
 app.use(cors());
@@ -93,6 +94,9 @@ app.delete("/api/delete", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
+// set port
+const PORT = process.env.NODE_DOCKER_PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}`);
 });
