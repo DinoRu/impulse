@@ -1,11 +1,12 @@
-const Pool = require('pg').Pool;
+const Pool = require("pg").Pool;
 
 //Connect your database
 const pool = new Pool({
-    'user': 'dino',
-    'host': 'localhost',
-    'port': 5432,
-    'database': 'impulse',
+  user: "me",
+  host: "localhost",
+  port: 5432,
+  database: "impulse",
+  password: "login123!",
 });
 
 module.exports = pool;

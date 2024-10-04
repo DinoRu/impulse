@@ -1,7 +1,8 @@
 CREATE DATABASE impulse;
 
-CREATE TABLE number(
-    number_id SERIAL PRIMARY KEY,
-    value INTEGER NOT NULL,
-    timestamp TIMESTAMP NOT NULL
+CREATE TABLE meter(
+    meter_id SERIAL PRIMARY KEY,
+    imei STRING NOT NULL,
+    pulse INTEGER NOT NULL,
+    date TIMESTAMP NOT NULL
 );
